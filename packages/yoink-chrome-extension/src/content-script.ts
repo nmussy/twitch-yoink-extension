@@ -1,5 +1,6 @@
 const badgeURL = chrome.runtime.getURL('images/badge.png');
-const usersURL = chrome.runtime.getURL('data/users.txt');
+// TODO CDN
+const usersURL = 'https://yoinker-app.s3.eu-west-3.amazonaws.com/users.txt';
 
 const waitForChat = () =>
   new Promise<void>((resolve) => {
