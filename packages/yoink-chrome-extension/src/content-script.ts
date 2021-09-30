@@ -1,6 +1,5 @@
-const badgeURL = chrome.runtime.getURL('images/badge.png');
-// TODO CDN
-const usersURL = 'https://yoinker-app.s3.eu-west-3.amazonaws.com/users.txt';
+const badgeURL = (chrome ?? browser).runtime.getURL('images/badge.png');
+const usersURL = 'https://d3ccy3avj75z8y.cloudfront.net/users.txt';
 
 const waitForChat = () =>
   new Promise<void>((resolve) => {
@@ -12,6 +11,7 @@ const waitForChat = () =>
 
     observer.observe(document.body, {
       childList: true,
+      subtree: true,
     });
   });
 
@@ -34,9 +34,6 @@ const listenToChat = (callback: MutationCallback) => {
     subtree: true,
   });
 };
-
-const isNodeBadgeContainer = (node: Node): node is HTMLSpanElement =>
-  (node as HTMLSpanElement).classList?.contains('chat-line__message--badges');
 
 const isNodeMessageContainer = (node: Node): node is HTMLDivElement =>
   (node as HTMLSpanElement).classList?.contains('chat-line__message');

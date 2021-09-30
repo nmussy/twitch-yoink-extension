@@ -46,21 +46,21 @@ void (async () => {
         if (previousTwitchUsername) {
           if (previousTwitchUsername === twitchUsername) {
             interaction.editReply(
-              `You had already registered "${twitchUsername}" previously, didn't change anything`,
+              `You had already registered \`${twitchUsername}\` previously, didn't change anything`,
             );
             return;
           }
 
           await storage.setKey(userId, twitchUsername);
           interaction.editReply(
-            `Successfully changed from "${previousTwitchUsername}" to "${twitchUsername}"`,
+            `Successfully changed from \`${previousTwitchUsername}\` to \`${twitchUsername}\``,
           );
           return;
         }
 
         await storage.setKey(userId, twitchUsername);
         interaction.editReply(
-          `Successfully added your Twitch username "${twitchUsername}" to the Yoinkers`,
+          `Successfully added your Twitch username \`${twitchUsername}\` to the Yoinkers`,
         );
       } else if (interaction.commandName === COMMAND.YOINK_UNREGISTER) {
         const userId = interaction.user.id;
@@ -75,7 +75,7 @@ void (async () => {
 
         storage.deleteKey(userId);
         interaction.editReply(
-          `Successfully removed "${twitchUsername}" from the Yoinkers`,
+          `Successfully removed \`${twitchUsername}\` from the Yoinkers`,
         );
       }
     } catch (err) {

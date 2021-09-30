@@ -1,0 +1,20 @@
+{
+  "name": "Twitch chat Yoink badge",
+  "description": "Adds a Yoink badge to Twitch chat",
+  "version": "1.0.4",
+  "manifest_version": 3,
+  "icons": {
+    "16": "/images/icon16.png",
+    "32": "/images/icon32.png"
+  },
+  "permissions": ["activeTab"],
+  "content_scripts": [
+    {
+      "matches": ["https://*.twitch.tv/*"],
+      "js": ["dist/content-script.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    {"resources": ["images/badge.png"], "matches": ["<all_urls>"]}
+  ]
+}

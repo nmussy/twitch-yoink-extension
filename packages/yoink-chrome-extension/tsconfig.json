@@ -9,7 +9,7 @@
     "outDir": "dist",
     "sourceMap": true,
     "esModuleInterop": true,
-    "types": ["chrome"]
+    "types": ["chrome", "firefox-webext-browser"]
   },
   "include": ["src/**/*"],
   "exclude": ["../../node_modules"]

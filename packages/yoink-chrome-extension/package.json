@@ -7,13 +7,25 @@
   "private": true,
   "scripts": {
     "build": "tsc",
-    "dev": "tsc --watch"
+    "dev": "tsc --watch",
+    "pack.chrome": "babel-node --extensions .ts src/pack/chrome.ts",
+    "pack.opera": "babel-node --extensions .ts src/pack/opera.ts",
+    "pack.firefox": "babel-node --extensions .ts src/pack/firefox.ts"
   },
-  "workspaces": [
-    "packages/*"
-  ],
   "devDependencies": {
+    "@babel/core": "^7.15.5",
+    "@babel/node": "^7.15.4",
+    "@babel/plugin-transform-typescript": "^7.15.4",
+    "@babel/preset-env": "^7.15.6",
+    "@babel/preset-typescript": "^7.15.0",
+    "@types/adm-zip": "^0.4.34",
     "@types/chrome": "^0.0.157",
+    "@types/firefox-webext-browser": "^82.0.1",
+    "@types/fs-extra": "^9.0.13",
+    "@types/node": "^16.10.0",
+    "adm-zip": "^0.5.6",
+    "crx": "^5.0.1",
+    "fs-extra": "^10.0.0",
     "typescript": "^4.4.3"
   }
 }
