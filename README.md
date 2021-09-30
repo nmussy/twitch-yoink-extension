@@ -1,5 +1,9 @@
 # Twitch Yoink browser extension
 
+<p align="center">
+  <img alt="Brower extension example" src="docs/assets/browser_extension_screenshot.png">
+</p>
+
 ## Download the extension for your browser
 
 [![Chrome Web Store logo](docs/assets/chrome_store_logo.png)](https://chrome.google.com/webstore/detail/twitch-chat-yoink-badge/manchpajcaecnbbmhanamjeajhpompkf)
