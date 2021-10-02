@@ -9,6 +9,11 @@
 [![Chrome Web Store logo](docs/assets/chrome_store_logo.png)](https://chrome.google.com/webstore/detail/twitch-chat-yoink-badge/manchpajcaecnbbmhanamjeajhpompkf)
 [![Firefox Add-on logo](docs/assets/firefox_add-on_logo.png)](https://addons.mozilla.org/en-US/firefox/addon/twitch-chat-yoink-badge/)
 
+**Awaiting review, the Opera extension is only available in Opera Developer and Opera Next:**
+
+[![Opera Add-ons logo](docs/assets/opera_add-ons_logo.png)](https://addons.opera.com/en/extensions/details/twitch-chat-yoink-badge/)
+
+
 ## Usage
 
 Install the extension, and see a badge next to your fellow Yoinkers.
