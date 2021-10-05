@@ -1,12 +1,14 @@
+import CloudFront from 'aws-sdk/clients/cloudfront';
 import S3 from 'aws-sdk/clients/s3';
 import {config} from 'dotenv';
 
 config();
-const {BUCKET_NAME} = process.env;
+const {BUCKET_NAME, DISTRIBUTION_ID} = process.env;
 
 export class S3Storage {
   private cache: {[key: string]: string};
   private s3 = new S3();
+  private cloudFront = new CloudFront();
   constructor(public mapKey = 'map.json', public usersKey = 'users.txt') {}
 
   async init(): Promise<void> {
@@ -84,6 +86,21 @@ export class S3Storage {
         Body: users.join('\n'),
         ContentType: 'text/plain',
         ACL: 'public-read',
+      })
+      .promise();
+
+    if (!DISTRIBUTION_ID) return;
+
+    await this.cloudFront
+      .createInvalidation({
+        DistributionId: DISTRIBUTION_ID,
+        InvalidationBatch: {
+          CallerReference: new Date().getTime().toString(),
+          Paths: {
+            Quantity: 1,
+            Items: [`/${this.usersKey}`],
+          },
+        },
       })
       .promise();
   }
