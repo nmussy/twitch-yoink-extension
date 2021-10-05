@@ -26,8 +26,8 @@ To get a Yoink badge next to your name, you must register your Twitch username i
 
 ### Browser extension
 
-See [`yoink-browser-extension` README](/nmussy/twitch-yoink-extension/tree/master/packages/yoink-browser-extension)
+See [`yoink-browser-extension` README](packages/yoink-browser-extension)
 
 ### Discord bot
 
-See [`yoink-discord-bot` README](/nmussy/twitch-yoink-extension/tree/master/packages/yoink-discord-bot)
+See [`yoink-discord-bot` README](packages/yoink-discord-bot)
