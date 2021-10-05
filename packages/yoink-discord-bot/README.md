@@ -14,6 +14,7 @@ DISCORD_CLIENT_ID=
 DISCORD_GUILD_IDS=comma,separated,ids
 
 BUCKET_NAME=
+DISTRIBUTION_ID=
 ```
 
 ## Invite the bot
