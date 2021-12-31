@@ -91,17 +91,21 @@ export class S3Storage {
 
     if (!DISTRIBUTION_ID) return;
 
-    await this.cloudFront
-      .createInvalidation({
-        DistributionId: DISTRIBUTION_ID,
-        InvalidationBatch: {
-          CallerReference: new Date().getTime().toString(),
-          Paths: {
-            Quantity: 1,
-            Items: [`/${this.usersKey}`],
+    try {
+      await this.cloudFront
+        .createInvalidation({
+          DistributionId: DISTRIBUTION_ID,
+          InvalidationBatch: {
+            CallerReference: new Date().getTime().toString(),
+            Paths: {
+              Quantity: 1,
+              Items: [`/${this.usersKey}`],
+            },
           },
-        },
-      })
-      .promise();
+        })
+        .promise();
+    } catch (err) {
+      console.error(err);
+    }
   }
 }

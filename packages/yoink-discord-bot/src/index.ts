@@ -31,14 +31,13 @@ void (async () => {
   client.on('interactionCreate', async (interaction): Promise<void> => {
     if (!interaction.isCommand()) return;
 
+    await interaction.deferReply();
     try {
       if (interaction.commandName === COMMAND.YOINK_REGISTER) {
         const userId = interaction.user.id;
         const twitchUsername = getUsername(
           interaction.options.getString('twitch_username'),
         );
-
-        await interaction.deferReply();
 
         console.log({twitchUsername});
         const previousTwitchUsername = await storage.getKey(userId);
@@ -65,8 +64,6 @@ void (async () => {
       } else if (interaction.commandName === COMMAND.YOINK_UNREGISTER) {
         const userId = interaction.user.id;
 
-        await interaction.deferReply();
-
         const twitchUsername = await storage.getKey(userId);
         if (!twitchUsername) {
           interaction.editReply(`Didn't have a Twitch`);
@@ -80,7 +77,7 @@ void (async () => {
       }
     } catch (err) {
       console.error(err);
-      return interaction.reply({
+      interaction.editReply({
         content: `Something went wrong, sorry!`,
       });
     }
